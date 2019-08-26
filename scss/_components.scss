@@ -1,0 +1,495 @@
+//header section
+
+/////////
+// logo section
+.logo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex: 0 0 15%;
+	margin-left: 3rem;
+
+	@media only screen and (max-width: 700px) {
+		order: 1;
+		margin-right: auto;
+	}
+	.logo-img {
+		width: 7rem;
+	}
+}
+// search section styles
+.search {
+	flex: 0 0 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: auto;
+
+	@media only screen and (max-width: 700px) {
+		order: 3;
+		flex: 0 0 100%;
+	}
+
+	// input field special styles
+	&-input {
+		width: 80%;
+		border: none;
+		outline: none;
+		background: var(--color-grey-light-2);
+		padding: 1.5rem 2rem;
+		border-radius: 100px;
+		transition: 0.4s all;
+
+		// effects done when typing(focusing) in the input field
+		&:focus {
+			width: 100%;
+			background: var(--color-grey-light-3);
+		}
+		// special styles in the placeholder area
+		&::-webkit-input-placeholder {
+			font-size: inherit;
+			font-weight: 300;
+			color: var(--color-grey-light-4);
+		}
+	}
+	// button styles
+	&-button {
+		border: none;
+		outline: none;
+		border-radius: 50%;
+		background: var(--color-grey-light-2);
+		padding: 1rem;
+		margin-left: -5rem;
+		cursor: pointer;
+	}
+	// functionality used to change button color when focusing on the input field
+	&-input:focus + &-button {
+		background: var(--color-grey-light-3);
+	}
+	// button icon styles
+	&-icon {
+		width: 1.75rem;
+		height: 1.75rem;
+		fill: #ccc;
+	}
+}
+
+// user navigation section
+.user-nav {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 3rem;
+
+	@media only screen and (max-width: 700px) {
+		order: 2;
+		justify-content: center;
+	}
+
+	// universal icon box styles
+	&__icon-box {
+		padding: 1rem 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		align-self: stretch;
+
+		// effects been activated when hovering the icon box
+		&:hover {
+			background: var(--color-grey-light-2);
+		}
+	}
+	// icon box icons genearl styles
+	&__icon {
+		width: 3.25rem;
+		height: 3.25rem;
+	}
+	// notifications count area
+	&__text {
+		border-radius: 50%;
+		width: 2rem;
+		height: 2rem;
+		background: var(--color-primary);
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 1.5rem;
+		left: 4rem;
+	}
+
+	// info on the user currently logged in
+	&__user-info {
+		display: flex;
+	}
+	// user image
+	&__img {
+		width: 5rem;
+		height: 5rem;
+	}
+	//span element used to show the user name
+	&__user-name {
+		align-self: center;
+		padding-left: 0.25rem;
+		font-size: 1.5rem;
+		font-weight: 400;
+	}
+}
+///////////
+
+// sidebar
+// navigation buttons container
+.nav {
+	//ul {
+	&-main {
+		list-style-type: none;
+		width: 100%;
+
+		@media only screen and (max-width: 1000px) {
+			display: flex;
+		}
+	}
+	//li
+	&-item {
+		padding: 1rem 0;
+		position: relative;
+
+		@media only screen and (max-width: 1000px) {
+			flex: 1;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 3px;
+			height: 100%;
+			background: var(--color-primary-light);
+			left: 0;
+			top: 0;
+			transform: scaleY(0);
+			transform-origin: center;
+			transition: .2s transform, 0.3s width 0.2s;
+		}
+		&:hover::before {
+			width: 100%;
+			transform: scaleY(1);
+		}
+	}
+
+	// a element
+	&-link {
+		text-decoration: none;
+		padding: 1rem 2rem;
+		font-size: 1.5rem;
+		position: relative;
+		z-index: 1000;
+		color: var(--color-grey-light-2);
+		display: flex;
+		align-items: center;
+		text-align: center;
+
+		&__icon {
+			width: 2.25rem;
+			height: 2.25rem;
+			fill: currentColor;
+		}
+
+		span {
+			padding-left: 1.5rem;
+		}
+	}
+}
+
+// copyright legal text
+.legal {
+	color: var(--color-grey-light-3);
+	padding: 5rem 2rem;
+	text-align: center;
+
+	@media only screen and (max-width: 1000px) {
+		display: none;
+	}
+}
+
+////////////////
+/////main content
+
+/// the gallery section ..the first three images at the top
+.gallery {
+	display: flex;
+	&-box {
+		flex: 0 0 33.33333%;
+	}
+	&-img {
+		width: 100%;
+		display: inherit;
+	}
+}
+
+//// user overview bar section
+.user-overview {
+	height: 6rem;
+	display: flex;
+	border-bottom: var(--line);
+
+	background: #fff;
+}
+.overview {
+	&-header {
+		font-family: serif;
+		font-size: 1.5rem;
+		font-weight: 300;
+		letter-spacing: 0.5rem;
+		flex: 0 0 30%;
+		align-self: center;
+		margin-left: 3rem;
+	}
+	&-stars {
+		flex: 0 0 20%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: auto;
+
+		&__icon {
+			width: 2.25rem;
+			height: 2.25rem;
+			fill: var(--color-primary);
+			display: inline-block;
+		}
+	}
+	&-location {
+		display: flex;
+		align-items: center;
+		padding-right: 1rem;
+		color: var(--color-primary);
+
+		&__icon {
+			width: 2rem;
+			height: 2rem;
+			fill: currentColor;
+		}
+		&__name {
+			color: inherit;
+		}
+	}
+
+	&-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		background: var(--color-primary-light);
+		color: var(--color-grey-light-1);
+
+		&__value {
+			font-size: 2rem;
+			font-weight: 600;
+		}
+		&__votes {
+			padding-top: 0.5rem;
+			font-size: 1.1rem;
+		}
+	}
+}
+
+//////////////////////////////
+// detail section in the main content
+//detail section contains two sections description and user reviews
+
+///description section
+.description {
+	&-box {
+		font-size: 1.3rem;
+	}
+}
+
+.paragraph {
+	&:not(:last-of-type) {
+		margin-bottom: 2rem;
+	}
+}
+
+.list {
+	box-sizing: content-box;
+	padding: 2rem 0;
+	margin: 2rem;
+	border-top: var(--line);
+	border-bottom: var(--line);
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+
+	@media only screen and (max-width: 1100px) {
+		margin: 2rem -5rem 2rem 2rem;
+	}
+
+	&-item {
+		flex: 0 0 50%;
+		padding: 0.5rem 0;
+		position: relative;
+
+		@media only screen and (max-width: 550px) {
+			flex: 0 0 51%;
+		}
+		&::before {
+			content: '';
+			width: 1.25rem;
+			height: 1.25rem;
+			background: url('../img/chevron-thin-right.svg');
+			background-size: cover;
+			position: absolute;
+			left: -2.5rem;
+
+			@supports ((-webkit-mask-image: url()) or (mask-image:())) {
+				-webkit-mask-image: url('../img/chevron-thin-right.svg');
+				mask-image: url('../img/chevron-thin-right.svg');
+			}
+
+			@supports ((-webkit-mask-size: cover) or (mask-size: cover)) {
+				-webkit-mask-size: cover;
+				mask-size: cover;
+			}
+
+			background: var(--color-primary);
+		}
+	}
+}
+.recommend {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&-img {
+		border: 3px solid var(--color-grey-light-2);
+		border-radius: 50%;
+		width: 3.5rem;
+		height: 3.5rem;
+		box-sizing: content-box;
+		margin-right: -2rem;
+
+		@media only screen and (max-width: 900px) {
+			&:last-child {
+				display: none;
+			}
+		}
+	}
+}
+///////////////////
+////user reviews
+
+.review {
+	padding: 3rem;
+	background: var(--color-grey-light-1);
+	position: relative;
+	font-size: 1.4rem;
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+
+	&::before {
+		content: "\201C";
+		position: absolute;
+		width: 10rem;
+		height: 10rem;
+		color: var(--color-grey-light-3);
+		font-size: 20rem;
+		left: 0;
+		top: 7rem;
+		z-index: 1;
+	}
+
+	&__text {
+		position: relative;
+		z-index: 10;
+		padding-bottom: 2rem;
+	}
+
+	&__user {
+		display: flex;
+		justify-content: space-between;
+		&-img {
+			width: 6rem;
+			height: 6rem;
+			border-radius: 50%;
+		}
+		&-box {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		&-name {
+			font-size: 1.6rem;
+			font-weight: 600;
+			padding-bottom: 0.5rem;
+		}
+		// &-date {
+		// }
+		&-rating {
+			align-self: center;
+			font-size: 2rem;
+			font-weight: inherit;
+			color: var(--color-primary);
+		}
+	}
+}
+
+///////////////////
+///CTA footer or registering part
+.cta {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 500;
+	line-height: 3rem;
+
+	&-text {
+		padding-bottom: 2rem;
+	}
+}
+
+.btn {
+	&-prime {
+		outline: none;
+
+		border-radius: 100px;
+		color: var(--color-grey-light-1);
+		transition: all 1s;
+		background: linear-gradient(to right, #ff3366, #ba265d);
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		margin-bottom: 5rem;
+
+		& > * {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			transition: all .2s;
+		}
+	}
+	&-visible {
+		padding: 2rem 7rem;
+	}
+	&-hovered {
+		padding: 2rem 0;
+		position: absolute;
+		top: 100%;
+		left: 0;
+	}
+}
+
+.btn-prime:hover {
+	background: linear-gradient(to left, #ff3366, #ba265d);
+}
+
+.btn-prime:hover .btn-hovered {
+	top: 0;
+}
+.btn-prime:hover .btn-visible {
+	transform: translateY(-100%);
+}
